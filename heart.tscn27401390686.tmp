@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgi0n6wow5eit"]
+
+[ext_resource type="Texture2D" uid="uid://cbdl04k6xqcqh" path="res://heart.png" id="1_cixvg"]
+
+[sub_resource type="GDScript" id="GDScript_cixvg"]
+script/source = "extends Area2D
+
+const Events = preload(\"uid://b4fs8n8nsdl16\")
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()
+	var hearts = get_tree().get_nodes_in_group(\"Hearts\")
+	
+	if hearts.size() == 1:
+		pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p8dj"]
+radius = 5.0
+
+[node name="Heart" type="Area2D" groups=["Hearts"]]
+collision_layer = 0
+collision_mask = 2
+script = SubResource("GDScript_cixvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cixvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7p8dj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

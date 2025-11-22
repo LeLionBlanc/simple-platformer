@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbpccr164n4y"]
+[gd_scene load_steps=7 format=3 uid="uid://bpbpccr164n4y"]
 
 [ext_resource type="Script" uid="uid://bxf033t7obcgl" path="res://world.gd" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://bia2stu0ihjki" path="res://player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://3ox1ear7q7x" path="res://spikes.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bgi0n6wow5eit" path="res://heart.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bojx6gde307b7" path="res://level_completed.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(16, 88)
@@ -10,6 +13,7 @@ size = Vector2(16, 88)
 script = ExtResource("1_f3sb7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, 16, 0, 16, 128, 40, 128, 80, 144, 96, 144, 136, 104, 160, 104, 160, 144, 184, 144, 184, 80, 200, 80, 216, 104, 232, 120, 264, 120, 296, 104, 296, 0, 320, 0, 320, 184, 0, 184)
@@ -17,7 +21,7 @@ polygon = PackedVector2Array(0, 0, 16, 0, 16, 128, 40, 128, 80, 144, 96, 144, 13
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(48, 96)
+position = Vector2(28, 128)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -29,3 +33,29 @@ shape = SubResource("RectangleShape2D_fj7yv")
 offset_left = 240.0
 offset_right = 256.0
 offset_bottom = 88.0
+
+[node name="Spikes" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(160, 144)
+
+[node name="Spikes2" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(168, 144)
+
+[node name="Heart" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(88, 128)
+
+[node name="Heart3" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(136, 88)
+
+[node name="Heart4" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(152, 88)
+
+[node name="Heart5" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(248, -16)
+
+[node name="Heart2" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(192, 64)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_036b0")]
+visible = false
