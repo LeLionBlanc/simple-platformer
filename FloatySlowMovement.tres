@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerMovementData" load_steps=2 format=3 uid="uid://cu1yc3rfv6wul"]
+
+[ext_resource type="Script" uid="uid://dy2upkgouq8qj" path="res://PlayerMovementData.gd" id="1_g2tis"]
+
+[resource]
+script = ExtResource("1_g2tis")
+jump_velocity = -150.0
+gravity_scale = 0.2
+metadata/_custom_type_script = "uid://dy2upkgouq8qj"

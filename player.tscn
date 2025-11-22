@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bia2stu0ihjki"]
+[gd_scene load_steps=14 format=3 uid="uid://bia2stu0ihjki"]
 
 [ext_resource type="Texture2D" uid="uid://dmy5jyahdk0fa" path="res://player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://yu38wsx8owsa" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Resource" uid="uid://135gtx5x1iwq" path="res://DefaultMovementData.tres" id="2_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -84,12 +85,13 @@ size = Vector2(8, 16)
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_onrkg")
+movement_data = ExtResource("2_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_n7ghd")
 animation = &"idle"
-frame_progress = 0.81650525
+frame_progress = 0.8948255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
