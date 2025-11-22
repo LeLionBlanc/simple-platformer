@@ -5,57 +5,53 @@
 [ext_resource type="PackedScene" uid="uid://3ox1ear7q7x" path="res://spikes.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bgi0n6wow5eit" path="res://heart.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://bojx6gde307b7" path="res://level_completed.tscn" id="5_036b0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
-size = Vector2(16, 88)
+[ext_resource type="PackedScene" uid="uid://c1dj7bb7wbqnr" path="res://level_tile_map.tscn" id="6_dwbse"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_f3sb7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 16, 0, 16, 128, 40, 128, 80, 144, 96, 144, 136, 104, 160, 104, 160, 144, 184, 144, 184, 80, 200, 80, 216, 104, 232, 120, 264, 120, 296, 104, 296, 0, 320, 0, 320, 184, 0, 184)
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(28, 128)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(248, 44)
-shape = SubResource("RectangleShape2D_fj7yv")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 240.0
-offset_right = 256.0
-offset_bottom = 88.0
 
 [node name="Spikes" parent="." instance=ExtResource("3_tlwt5")]
 position = Vector2(160, 144)
 
 [node name="Spikes2" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(168, 144)
+position = Vector2(176, 144)
 
 [node name="Heart" parent="." instance=ExtResource("4_aqk2v")]
-position = Vector2(88, 128)
+position = Vector2(56, 136)
+
+[node name="Heart7" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(0, -8)
+
+[node name="Heart9" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(80, -8)
+
+[node name="Heart10" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(168, -8)
+
+[node name="Heart8" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(240, -8)
 
 [node name="Heart3" parent="." instance=ExtResource("4_aqk2v")]
-position = Vector2(136, 88)
+position = Vector2(144, 104)
 
 [node name="Heart4" parent="." instance=ExtResource("4_aqk2v")]
-position = Vector2(152, 88)
+position = Vector2(280, 16)
 
 [node name="Heart5" parent="." instance=ExtResource("4_aqk2v")]
-position = Vector2(248, -16)
+position = Vector2(264, 48)
 
 [node name="Heart2" parent="." instance=ExtResource("4_aqk2v")]
-position = Vector2(192, 64)
+position = Vector2(280, 88)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_036b0")]
 visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_dwbse")]
+position = Vector2(80, 144)
+layer_0/tile_data = PackedInt32Array(-524293, 131072, 0, -458757, 131072, 1, -393221, 131072, 1, -327685, 131072, 1, -262149, 131072, 1, -196613, 131072, 1, -131077, 131072, 1, -65541, 131072, 1, -5, 327680, 2, -4, 131072, 0, 65531, 65536, 1, 65532, 327680, 2, 131068, 65536, 1, 131067, 65536, 1, 196603, 65536, 2, 196604, 65536, 2, 196605, 65536, 2, 196606, 65536, 2, 196607, 65536, 2, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131078, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 131072, 2, -589811, 0, 0, -589810, 131072, 0, -524275, 0, 1, -458739, 0, 1, -393203, 0, 1, -327667, 0, 1, -262131, 0, 1, -196595, 0, 1, -131059, 0, 1, -65523, 393216, 2, 13, 65536, 1, 65549, 65536, 1, 65550, 131072, 1, -524274, 131072, 1, -458738, 131072, 1, -393202, 131072, 1, -327666, 131072, 1, -262130, 131072, 1, -196594, 131072, 1, -131058, 131072, 1, -65522, 131072, 1, 14, 131072, 1, -65524, 65536, 0, -65525, 65536, 0, -65526, 65536, 0, -65527, 65536, 0, 9, 65536, 1, 10, 65536, 1, 11, 65536, 1, 12, 65536, 1, 65548, 65536, 1, 65547, 65536, 1, 65546, 65536, 1, 65545, 65536, 1, 65544, 65536, 1, 65543, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 65540, 65536, 1, 65539, 65536, 1, 65538, 65536, 1, 65537, 65536, 1, 65536, 65536, 1, 131071, 65536, 1, 131070, 65536, 1, 131069, 65536, 1, 65533, 65536, 0, 65534, 65536, 0, 0, 65536, 0, 65535, 65536, 0, 1, 65536, 0, 2, 393216, 2, 3, 65536, 1, 4, 327680, 2, 5, 65536, 0, 6, 65536, 0, 7, 393216, 2, 8, 65536, 1, -65528, 327680, 2, -65529, 0, 1, -131065, 0, 0, -131064, 131072, 0, -65533, 393216, 2, -131069, 0, 0, -131068, 131072, 0, -65532, 131072, 1, -589814, 131072, 0, -524278, 131072, 1, -458742, 131072, 1, -393206, 131072, 1, -327670, 131072, 2, -524294, 0, 0, -458758, 0, 1, -393222, 0, 1, -327686, 0, 1, -262150, 0, 1, -196614, 0, 1, -131078, 0, 1, -65542, 0, 1, -6, 0, 1, 65530, 0, 1, 131066, 0, 1, 196602, 0, 2, -327671, 0, 2, -393207, 0, 1, -458743, 0, 1, -524279, 0, 1, -589815, 0, 0, -524289, 0, 3, -589824, 131072, 3, -589819, 196608, 3, -65534, 0, 0)
+layer_1/tile_data = PackedInt32Array(-65536, 196609, 0, -65535, 262145, 0, -131070, 1, 0, -131063, 393218, 0, -3, 393218, 0, -4, 65536, 0, 65532, 65536, 1, 65533, 327682, 0, 1, 65536, 1, -65534, 65537, 0, 0, 327681, 0, -131069, 65536, 0, 2, 65536, 1, -65533, 65536, 1, -65528, 65536, 1, -65527, 65538, 0, -131064, 65536, 0)
